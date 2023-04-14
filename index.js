@@ -13,10 +13,15 @@ const db = settings.dbURL;
 
 mongoose
   .connect(db)
-  .then(() => console.log("Mongo DB connected successfully"))
+  .then(() => {
+    app.listen(port, () => console.log(`App running at port ${port}`))
+
+  })
   .catch((err) => console.log(err));
+
+
+
 
 const shipwrecks = require("./routes/api/geospatial");
 app.use("/api/shipwrecks", shipwrecks);
 
-app.listen(port, () => console.log(`App running at port ${port}`))
