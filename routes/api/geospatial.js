@@ -13,7 +13,7 @@ const passport = require("passport");
 
 const settings = require("../../config/settings");
 var randomstring = require("randomstring");
-require('../../strategies/jsonwtStrategy')(passport);
+require("../../strategies/jsonwtStrategy")(passport);
 router.engine(
   ".hbs",
   exphbs.engine({
@@ -168,7 +168,7 @@ router.post(
     await shipWreckData
       .save()
       .then((shipWreckData) => {
-        res.status(200).send("Shipwreck data added successfully");
+        res.status(200).json(shipWreckData);
       })
       .catch((err) => {
         res
@@ -181,14 +181,14 @@ router.post(
 router.post("/data/submitData", async (req, res) => {
   let searchQuery = {};
   let perPage = req.body.perPage || 10;
-  let page = req.body.page || 0;
+  let page = parseInt(req.body.page) || 1;
   if (req.body.depth) {
     searchQuery.depth = req.body.depth;
   }
   await Geospatial.find(searchQuery)
     .lean()
     .limit(perPage)
-    .skip(perPage * page)
+    .skip(perPage * (page - 1))
     .then((shipWreckData) => {
       res.render("result", {
         title: "Result",
@@ -205,7 +205,7 @@ router.get(
   async (req, res) => {
     let searchQuery = {};
     let perPage = req.query.perPage || 10;
-    let page = req.query.page || 0;
+    let page = parseInt(req.query.page) || 1;
     if (req.query.depth) {
       searchQuery.depth = req.query.depth;
     }
@@ -215,7 +215,32 @@ router.get(
     }
     await Geospatial.find(searchQuery)
       .limit(perPage)
-      .skip(perPage * page)
+      .skip(perPage * (page - 1))
+      .then((shipWreckData) => {
+        res.status(200).json(shipWreckData);
+      })
+      .catch((err) => {
+        res.status(500).send("Some error while fetching data" + err);
+      });
+  }
+);
+router.get(
+  "/data",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    let searchQuery = {};
+    let perPage = req.query.perPage || 10;
+    let page = parseInt(req.query.page) || 1;
+    if (req.query.depth) {
+      searchQuery.depth = req.query.depth;
+    }
+
+    if (req.params.id) {
+      searchQuery._id = req.params.id;
+    }
+    await Geospatial.find(searchQuery)
+      .limit(perPage)
+      .skip(perPage * (page - 1))
       .then((shipWreckData) => {
         res.status(200).json(shipWreckData);
       })
@@ -303,7 +328,7 @@ router.delete(
         res.status(200).send("Delete successfull");
       })
       .catch((err) => {
-        res.status(500).send(`Some error occured - ${err}`);
+        res.status(404).send(`Not Found`);
       });
   }
 );
