@@ -1,0 +1,283 @@
+{
+	"info": {
+		"_postman_id": "45304166-f72e-4192-ac33-6f59c4d98266",
+		"name": "NodeProjectGeoSpatial",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "API connection test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/shipwrecks/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"shipwrecks",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertShipWreckData",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "recrd",
+							"value": "demo-record",
+							"type": "default"
+						},
+						{
+							"key": "vesslterms",
+							"value": "demo-vesslterms",
+							"type": "default"
+						},
+						{
+							"key": "feature_type",
+							"value": "Wrecks - not visible",
+							"type": "default"
+						},
+						{
+							"key": "chart",
+							"value": "US,U1,graph,DNC H1409860",
+							"type": "default"
+						},
+						{
+							"key": "latdec",
+							"value": "9.335",
+							"type": "default"
+						},
+						{
+							"key": "longdec",
+							"value": "-79.37",
+							"type": "default"
+						},
+						{
+							"key": "gp_quality",
+							"value": "demo-gp_quality",
+							"type": "default"
+						},
+						{
+							"key": "depth",
+							"value": "0",
+							"type": "default"
+						},
+						{
+							"key": "sounding_type",
+							"value": "demo-sounding_type",
+							"type": "default"
+						},
+						{
+							"key": "history",
+							"value": "demo-history",
+							"type": "default"
+						},
+						{
+							"key": "quasou",
+							"value": "demo-qausou",
+							"type": "default"
+						},
+						{
+							"key": "watlev",
+							"value": "demo-watlev",
+							"type": "default"
+						},
+						{
+							"key": "coordinates",
+							"value": "-79.37",
+							"type": "default"
+						},
+						{
+							"key": "coordinates",
+							"value": "9.335",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/shipwrecks/data",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"shipwrecks",
+						"data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateShipWreckData",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "recrd",
+							"value": "demo-record-just",
+							"type": "default"
+						},
+						{
+							"key": "vesslterms",
+							"value": "demo-vesslterms-just",
+							"type": "default"
+						},
+						{
+							"key": "feature_type",
+							"value": "Wrecks - not visible-just",
+							"type": "default"
+						},
+						{
+							"key": "chart",
+							"value": "US,U1,graph,DNC H1409860",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "latdec",
+							"value": "9.335",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "longdec",
+							"value": "-79.37",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "gp_quality",
+							"value": "demo-gp_quality",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "depth",
+							"value": "0",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "sounding_type",
+							"value": "demo-sounding_type",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "history",
+							"value": "demo-history",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "quasou",
+							"value": "demo-qausou",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "watlev",
+							"value": "demo-watlev",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "coordinates",
+							"value": "-85",
+							"type": "default"
+						},
+						{
+							"key": "coordinates",
+							"value": "9",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/shipwrecks/data/643716a503c6543975cbbf87",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"shipwrecks",
+						"data",
+						"643716a503c6543975cbbf87"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getShipWreckData",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/shipwrecks/data/643716a503c6543975cbbf87",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"shipwrecks",
+						"data",
+						"643716a503c6543975cbbf87"
+					],
+					"query": [
+						{
+							"key": "depth",
+							"value": "0",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteShipWreckData",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/shipwrecks/data/643716a503c6543975cbbf87",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"shipwrecks",
+						"data",
+						"643716a503c6543975cbbf87"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

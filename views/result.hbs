@@ -1,0 +1,37 @@
+<table class="table">
+            <thead>
+                <th scope="col">Record</th>
+                <th scope="col">Vessel Terms</th>
+                <th scope="col">Feature Type</th>
+                <th scope="col">Chart</th>
+                <th scope="col">Latitude</th>
+                <th scope="col">Longitude</th>
+                <th scope="col">GP Quality</th>
+                <th scope="col">Depth</th>
+                <th scope="col">Sounding Type</th>
+                <th scope="col">History</th>
+                <th scope="col">Quasou</th>
+                <th scope="col">Water level</th>
+                {{!-- <th scope="col">Coordinates</th> --}}
+            </thead>
+            <tbody>
+                {{#each data}}
+                    <tr>
+                        <td>{{ recrd }}</td>
+                        <td>{{ vesslterms }}</td>
+                        <td>{{ feature_type }}</td>
+                        <td>{{ this.chart }}</td>
+                        <td>{{ latdec }}</td>
+                        <td>{{ londec }}</td>
+                        <td>{{ gp_quality }}</td>
+                        <td>{{ depth }}</td>
+                        <td>{{ sounding_type }}</td>
+                        <td>{{ history }}</td>
+                        <td>{{ quasou }}</td>
+                        <td>{{ watlev }}</td>
+                        
+                    </tr>
+                {{/each}}
+            </tbody>
+
+        </table>

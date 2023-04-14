@@ -1,0 +1,16 @@
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+.flex-class {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+button {
+    margin-top: 20px;
+}
